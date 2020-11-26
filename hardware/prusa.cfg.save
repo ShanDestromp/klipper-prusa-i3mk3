@@ -1,0 +1,36 @@
+#[prusa_gcodes]
+
+#[tram_z]
+
+[filament_switch_sensor pat9125]
+pause_on_runout: True
+runout_gcode:
+    M118 Filament Runout Detected
+    CHANGE_FILAMENT
+insert_gcode:
+    M118 Filament Load Detected
+    LOAD_FILAMENT
+    M400
+    {% if printer.pause_resume.is_paused %}
+        RESUME
+    {% endif %}
+event_delay: 3.0
+pause_delay: 0.01
+switch_pin: !PK0
+
+
+[temperature_sensor ambient]
+sensor_type: BME280
+#i2c_address: 118
+#   Default is 118 (0x76). Some BME280 sensors have an address of 119
+#   (0x77).
+i2c_mcu: linux
+#   MCU the sensor is connected to. Default is the primary mcu.
+i2c_bus: i2c.1
+#   The I2C bus the sensor is connected to. On some MCU platforms the
+#   default is bus 0. On platforms without bus 0 this parameter is
+#   required.
+#i2c_speed:
+#   The I2C speed (in Hz) to use when communicating with the sensor.
+#   Default is 100000. On some MCUs changing this value has no effect.
+gcode_id: AMB
