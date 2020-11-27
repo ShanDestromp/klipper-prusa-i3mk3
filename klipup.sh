@@ -2,12 +2,9 @@
 
 VER="$(echo $1 | tr '[A-Z]' '[a-z]')" #lowercase
 
-#KLIPPY_USER=$USER
-
-#KLIPPY_EXEC=$HOME/klippy-env/bin/python
-
-#KLIPPY_ARGS="$HOME/$VER/klippy/klippy.py /home/pi/printer.cfg -l /tmp/klippy.log"
-
+# THIS PATH MIGHT CHANGE
+# Recommend using /dev/serial/by-id/YOUR_DEVICE_HERE
+DEV=/dev/ttyACM0 #THIS PATH MIGHT CHANGE
 
 if [ "$VER" != "prusa" ] && [ "$VER" != "koc" ]
 then
@@ -29,7 +26,9 @@ git pull
 make menuconfig
 make
 sudo service klipper stop
-make flash FLASH_DEVICE=/dev/serial/by-id/usb-Prusa_Research__prusa3d.com__Original_Prusa_i3_MK3_CZPX3118X004XK76866-if00
+
+make flash FLASH_DEVICE=${DEV}
+
 
 rm $HOME/klipper
 ln -sf `pwd` $HOME/klipper
