@@ -63,11 +63,7 @@ A rudimentery bash script I use to update my klipper install in one command.  Ha
 
 ### `klipup.sh` usage:
 
-This assumes that your local copy is stored in `POKlipper` (for PrusaOwners fork) or `KOCKlipper` for Kevins.
-
-`./klipup.sh koc` or `./klipup.sh prusa` depending on which repo you're using.
-
-The script will then move to the appropriate directory, pull the latest version, build the firmware and flash it to your printer.  It will also ensure that a symlink is made from your built firmware to `~/klipper` allowing you to swap between forks without manually adjusting.
+The script pulls the latest github source then move to the appropriate directory, build the firmware and flash it to your printer.  
 
 I heavily recommend editing the script to modify the `DEV` line to match your printers connection in `/dev/serial/by-id/` instead of `/dev/ttyACM0` as `ttyACM0` might not always point to the correct device.
 
