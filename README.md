@@ -2,6 +2,9 @@
 
 Forked from [this repo](https://github.com/Frix-x/klipper-prusa-i3mk3s) by Frix-x for their MK3S, modified and tweaked to suit my MK3 with further refinements to suit my personal style.  This repo is mostly maintained as an offsite-backup of my own configuration and isn't meant to be a drop-in replacement for yours, however it shouldn't take much work to suit if you intend.
 
+# Notice:
+The following is somewhat out of date.  I've updated to a full MK3S+ (hardware), dropped Octoprint in favor of Mainsail (slicer and macros) as well as enabled the BME280 seson (requires a secondary Linux MCU system enabled) and possibly other forgotten changes.  At this point it (probably) won't work out of the box for most people but should serve as a decent launching point.  If you're still rocking a pure MK3 [this](https://github.com/ShanDestromp/klipper-prusa-i3mk3/releases/tag/MK3_Last) was my last commit prior to *that* change however the klipper macros and configurations will probably need to be updated as many things have changed upstream (eg rotation_distance).
+
 # Usage:
 
 `git clone https://github.com/ShanDestromp/klipper-prusa-i3mk3.git`
