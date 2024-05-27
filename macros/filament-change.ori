@@ -22,7 +22,6 @@ gcode:
     G1 E5 F100
     G92 E0.0
     M400
-    COUNTDOWN TIME=10 MSG="Clean nozzle! "
     M300
     UPDATE_DELAYED_GCODE ID=clear_display DURATION=5
     RESTORE_GCODE_STATE NAME=LOAD_FILAMENT_state
