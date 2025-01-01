@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 SCRIPT=$(readlink -f $0)
 SCPATH=`dirname $SCRIPT`
@@ -15,6 +15,9 @@ sudo service klipper stop
 echo "Building Prusa MCU Firmware"
 cp $SCPATH/misc/config.prusa ~/klipper/.config
 
+echo "Select atmega2650"
+read -n 1 -s -r -p "Any key to continue"
+
 make menuconfig #atmega2650 for Prusa, Linux process for Pi
 make clean
 make
@@ -24,6 +27,9 @@ make flash FLASH_DEVICE=${DEV}
 
 echo "Building Linux MCU Firmware"
 cp $SCPATH/misc/config.linux ~/klipper/.config
+
+echo "Select Linux process"
+read -n 1 -s -r -p "Any key to continue"
 
 make menuconfig #atmega2650 for Prusa, Linux process for Pi
 make clean
